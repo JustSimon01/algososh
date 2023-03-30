@@ -1,0 +1,9 @@
+.content {
+  width: 522px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.visual {}

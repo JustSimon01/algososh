@@ -13,16 +13,13 @@ export const StringComponent: React.FC = () => {
     value: string,
     state: ElementStates
   }
-
+  const [loader, setLoader] = useState<boolean>(false);
   const [string, setString] = useState<string | number>('');
   const [array, setArray] = useState<Array<ISymbolObject>>([]);
 
-  useEffect(()=>{
-
-  })
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setString( e.target.value );
+    console.log(string)
   }
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,7 +63,7 @@ export const StringComponent: React.FC = () => {
     <SolutionLayout title="Строка">
       <form className={`${styles.content}`} onSubmit={onSubmit}>
         <Input value={string} isLimitText={true} maxLength={11} onChange={onChange}/>
-        <Button type={"submit"} text="Развернуть"/>
+        <Button type={"submit"} text="Развернуть" isLoader={loader}/>
       </form>
       <div className={`${styles.visual}`}>
         <StringArray items={array}/>

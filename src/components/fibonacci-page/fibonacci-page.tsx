@@ -17,7 +17,11 @@ export const FibonacciPage: React.FC = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fibonacci(string);
+    if (1 <= Number(string) && Number(string) <= 19){
+      fibonacci(string);
+    } else {
+      alert('число должно быть от 1 до 19')
+    }
   }
   
   const fibonacci = (value: string ): void => {
@@ -41,8 +45,8 @@ export const FibonacciPage: React.FC = () => {
   return (
     <SolutionLayout title="Последовательность Фибоначчи">
       <form className={`${styles.content}`} onSubmit={onSubmit}>
-        <Input value={string} isLimitText={true} maxLength={19} onChange={onChange}/>
-        <Button type={"submit"} text="Рассчитать" isLoader={loader}/>
+        <Input value={string} isLimitText={true} type={'number'} max={19} onChange={onChange}/>
+        <Button type={"submit"}  text="Рассчитать" isLoader={loader}/>
       </form>
       <div className={`${styles.visual}`}>
         <FibonacciArray items={array}/>

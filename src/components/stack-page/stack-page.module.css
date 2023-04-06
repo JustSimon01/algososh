@@ -1,0 +1,29 @@
+.controls {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 829px;
+}
+
+.controlsMain {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 377px min-content min-content min-content;
+  align-items: start;
+  gap: 12px;
+}
+
+.smallButton {
+  width: 121px;
+}
+
+.array {
+  margin: auto;
+  padding: 52px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 80px);
+  justify-content: center;
+  grid-gap: 48px 16px;
+  max-width: 944px;
+}

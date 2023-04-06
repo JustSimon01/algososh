@@ -1,0 +1,35 @@
+.controls {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 221px 422px 221px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 980px;
+  gap: 52px;
+}
+
+.radioButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sorting {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  width: 205px;
+}
+
+.array {
+  padding: 48px 0 0;
+  height: 342px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: end;
+  gap: 10px;
+}

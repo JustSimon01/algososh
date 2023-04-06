@@ -9,11 +9,26 @@ export class Node<T> {
   }
 }
 
+interface INodeObject<T> {
+  value: T | string | number,
+  state: ElementStates,
+  head: number | string | React.ReactElement | null,
+  tail: number | string | React.ReactElement | null
+}
+
 interface ILinkedList<T> {
   append: (element: T) => void;
+  prepend: (element: T) => void;
+  deleteLastNode: () => void;
+  deleteFirstNode: () => void ;
+  addByIndex: (element: T, index: number) => void ;
+  deleteByIndex: (index: number) => void;
+  returnArray: () => Array<INodeObject<T>> ;
   getSize: () => number;
   print: () => void;
 }
+
+
 
 export class LinkedList<T> implements ILinkedList<T> {
   private head: Node<T> | null;
@@ -162,7 +177,7 @@ export class LinkedList<T> implements ILinkedList<T> {
 
   returnArray() {
     let curr = this.head;
-    let res: Array<any> = [];
+    let res: Array<INodeObject<T>> = [];
     while (curr) {
       res = [...res, {value: curr.value, state: ElementStates.Default, head: null, tail: null}];
       curr = curr.next;

@@ -30,6 +30,11 @@
   gap: 12px;
 }
 
+.list {
+  display: flex;
+  flex-direction: row;
+}
+
 .array {
   list-style: none;
   margin: auto;
@@ -42,6 +47,6 @@
   max-width: 944px;
 }
 
-.arrow:last-child {
-  display: none;
+.arrow {
+  margin: 0 0 0 25px;
 }

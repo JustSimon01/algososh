@@ -165,8 +165,7 @@ export const ListPage: React.FC = () => {
       </div>
       <ul className={styles.array}>
         {list.array.map((item, index) =>
-        <>
-          <li key={index}>
+          <li className={styles.list} key={index}>
             <Circle
               letter={item.value}
               index={index}
@@ -180,9 +179,8 @@ export const ListPage: React.FC = () => {
                 ? 'tail'
                 : (item.tail === null ? "" : <Circle isSmall state={ElementStates.Changing} letter={`${item.tail}`}/>)}
             />
+            {index !== list.length - 1 ? <img key={index} className={styles.arrow} src={arrow} alt="стрелка"/> : null}
           </li>
-          <img className={styles.arrow} src={arrow} alt="стрелка"/>
-          </>
         )}
       </ul>
       {}

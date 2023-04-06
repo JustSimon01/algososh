@@ -4,6 +4,8 @@ import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import styles from "./fibonacci-page.module.css"
 import FibonacciArray from "./fibonacci-array/fibonacci-array";
+import { sleep } from "../../utils/functions";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const FibonacciPage: React.FC = () => {
 
@@ -24,29 +26,27 @@ export const FibonacciPage: React.FC = () => {
     }
   }
   
-  const fibonacci = (value: string ): void => {
+  async function fibonacci (value: string ) {
     let prev = 0, next = 1;
     let tempArr: Array<string | number> = [];
+    setLoader(true)
     for(let i = 0; i <= Number(value); i++){
-      setLoader(true)
-      setTimeout(()=> {
-        let temp = next;
-        next = prev + next;
-        prev = temp;
-        tempArr = [...tempArr, prev]
-        setArray(tempArr)
-        if (i === Number(value)) {
-          setLoader(false)
-        }
-      }, i*500)
+      await sleep(SHORT_DELAY_IN_MS);
+
+      let temp = next;
+      next = prev + next;
+      prev = temp;
+      tempArr = [...tempArr, prev]
+      setArray(tempArr)
     }
+    setLoader(false)
   }
 
   return (
     <SolutionLayout title="Последовательность Фибоначчи">
       <form className={`${styles.content}`} onSubmit={onSubmit}>
         <Input value={string} isLimitText={true} type={'number'} max={19} onChange={onChange}/>
-        <Button type={"submit"}  text="Рассчитать" isLoader={loader}/>
+        <Button type={"submit"} disabled={!string} text="Рассчитать" isLoader={loader}/>
       </form>
       <div className={`${styles.visual}`}>
         <FibonacciArray items={array}/>

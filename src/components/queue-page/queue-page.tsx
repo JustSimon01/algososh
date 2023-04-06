@@ -8,6 +8,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { sleep } from "../../utils/functions";
 import { ElementStates } from "../../types/element-states";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 const queue = new Queue<number>(7);
 
@@ -43,7 +44,7 @@ export const QueuePage: React.FC = () => {
       setQueueArray({...queueArray, modifiedItem: queue.getTail()})
       setControls({...controls, add: true, delete: true, clear: true})
 
-      await sleep(500)
+      await sleep(SHORT_DELAY_IN_MS)
 
       queue.enqueue(values.item)
       setQueueArray({...queueArray, array: queue.getQueue(), head: queue.getHead(), tail: queue.getTail() , modifiedItem: null})
@@ -57,7 +58,7 @@ export const QueuePage: React.FC = () => {
     setQueueArray({...queueArray, modifiedItem: queue.getHead()})
     setControls({...controls, add: true, delete: true, clear: true})
 
-    await sleep(500)
+    await sleep(SHORT_DELAY_IN_MS)
 
     queue.dequeue()
     setQueueArray({...queueArray, array: queue.getQueue(), head: queue.getHead(), tail: queue.getTail() , modifiedItem: null})

@@ -7,6 +7,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { sleep } from "../../utils/functions";
 import { ElementStates } from "../../types/element-states";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 const stack = new Stack<string>();
 
@@ -36,7 +37,7 @@ export const StackPage: React.FC = () => {
     setArray([...array, { value: stack.peak()!, state: ElementStates.Changing }]);
     setString('');
     setControls({...controls, add: true, delete: true, clear: true})
-    await sleep(500);
+    await sleep(SHORT_DELAY_IN_MS);
     setArray([...array, { value: stack.peak()!, state: ElementStates.Default }]);
     setControls({...controls, add: false, delete: false, clear: false})
   }
@@ -45,7 +46,7 @@ export const StackPage: React.FC = () => {
     array.at(-1)!.state = ElementStates.Changing
     setArray([...array]);
     setControls({...controls, add: true, delete: true, clear: true})
-    await sleep(500);
+    await sleep(SHORT_DELAY_IN_MS);
     stack.pop();
     array.pop();
     if (array.length > 0) array.at(-1)!.state = ElementStates.Default
@@ -57,7 +58,6 @@ export const StackPage: React.FC = () => {
    stack.clear();
    setArray([])
   }
-
 
   return (
     <SolutionLayout title="Стек">

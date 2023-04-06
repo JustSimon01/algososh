@@ -7,6 +7,7 @@ import styles from "./sorting-page.module.css"
 import { Direction } from "../../types/direction";
 import { ElementStates } from "../../types/element-states";
 import { sleep } from "../../utils/functions";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const SortingPage: React.FC = () => {
 
@@ -30,7 +31,6 @@ export const SortingPage: React.FC = () => {
 
   const changeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckBox({...checkBox, checked: e.target.value})
-    console.log(e.target.value)
   }
 
   const changeSorting = (string: string): void => {
@@ -81,7 +81,7 @@ export const SortingPage: React.FC = () => {
         arr[j].state = ElementStates.Changing
         arr[i].state = ElementStates.Changing
         setRandArray(JSON.parse(JSON.stringify(arr)))
-        await sleep(300)
+        await sleep(SHORT_DELAY_IN_MS)
         arr[j].state = ElementStates.Default
         arr[i].state = ElementStates.Default
       }
@@ -110,7 +110,7 @@ export const SortingPage: React.FC = () => {
           arr[i + 1] = temp;
 
           setRandArray(JSON.parse(JSON.stringify(arr)))
-          await sleep(300)
+          await sleep(SHORT_DELAY_IN_MS)
 
           arr[i+1].state = ElementStates.Default
           arr[i].state = ElementStates.Default
@@ -125,7 +125,7 @@ export const SortingPage: React.FC = () => {
           arr[i + 1] = temp;
 
           setRandArray(JSON.parse(JSON.stringify(arr)))
-          await sleep(300)
+          await sleep(SHORT_DELAY_IN_MS)
 
           arr[i+1].state = ElementStates.Default
           arr[i].state = ElementStates.Default
@@ -147,15 +147,14 @@ export const SortingPage: React.FC = () => {
           <RadioInput name="sort-type" value={'bubble'} checked={checkBox.checked === 'bubble' ? true : false} disabled={checkBox.disabled} onChange={changeCheckBox} label={'Пузырек'}/>
         </div>
         <div className={styles.sorting}>
-          <Button type={"button"} sorting={Direction.Ascending} disabled={sorting.disabled} isLoader={sorting.isLoading === 'ascending' ? true : false} text="По возрастанию" extraClass={styles.button} onClick={() => changeSorting("ascending")}/>
-          <Button type={"button"} sorting={Direction.Descending} disabled={sorting.disabled} isLoader={sorting.isLoading ==='descending' ? true : false} text="По убыванию" extraClass={styles.button} onClick={() => changeSorting("descending")}/>
+          <Button type={"button"} sorting={Direction.Ascending} disabled={!randArray.length || sorting.disabled} isLoader={sorting.isLoading === 'ascending' ? true : false} text="По возрастанию" extraClass={styles.button} onClick={() => changeSorting("ascending")}/>
+          <Button type={"button"} sorting={Direction.Descending} disabled={!randArray.length || sorting.disabled} isLoader={sorting.isLoading ==='descending' ? true : false} text="По убыванию" extraClass={styles.button} onClick={() => changeSorting("descending")}/>
         </div>
         <Button type={"button"}  text="Новый массив" disabled={sorting.disabled} extraClass={styles.button} onClick={getRandArray}/>
       </div>
       <div className={styles.array}>
         {randArray.map((item, index) =><Column key={index} index={item.value} state={item.state}/>)}
       </div>
-
     </SolutionLayout>
   );
 };

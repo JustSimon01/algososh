@@ -1,0 +1,47 @@
+.controls {
+  margin: 12px auto auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 952px;
+}
+
+.topMargin {
+  margin-top: 48px;
+}
+
+.inputWidth {
+  width: 204px;
+}
+
+.smallButton {
+  width: 175px;
+}
+
+.bigButton {
+  width: 362px;
+}
+
+.controlsMain {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 377px min-content min-content min-content;
+  align-items: start;
+  gap: 12px;
+}
+
+.array {
+  list-style: none;
+  margin: auto;
+  padding: 120px 0 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 48px 25px;
+  max-width: 944px;
+}
+
+.arrow:last-child {
+  display: none;
+}

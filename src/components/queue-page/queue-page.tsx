@@ -20,17 +20,21 @@ export const QueuePage: React.FC = () => {
     modifiedItem: number | null
   }
 
-  const queueLength = queue.getLength();
+   const queueLength = queue.getLength();
+   const queueSize = queue.getSize();
+
   const [queueArray, setQueueArray] = useState<IqueueArray>({
     array: queue.getQueue(),
     head: queue.getHead(),
     tail: queue.getTail(),
     modifiedItem: null
   });
+
   const {values, handleChange, setValues} = useForm(
     {
       item: "",
     });
+
   const [controls, setControls] = useState({
     add: false,
     delete: false,
@@ -39,46 +43,49 @@ export const QueuePage: React.FC = () => {
   
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setControls({...controls, add: true});
+
     if(values.item) {
 
       setQueueArray({...queueArray, modifiedItem: queue.getTail()})
-      setControls({...controls, add: true, delete: true, clear: true})
 
       await sleep(SHORT_DELAY_IN_MS)
 
       queue.enqueue(values.item)
       setQueueArray({...queueArray, array: queue.getQueue(), head: queue.getHead(), tail: queue.getTail() , modifiedItem: null})
-      setControls({...controls, add: false, delete: false, clear: false})
       setValues({item: ''})
     }
+    setControls({...controls, add: false});
   }
 
   async function dequeue() {
-
+    setControls({...controls, delete: true});
     setQueueArray({...queueArray, modifiedItem: queue.getHead()})
-    setControls({...controls, add: true, delete: true, clear: true})
 
     await sleep(SHORT_DELAY_IN_MS)
 
     queue.dequeue()
     setQueueArray({...queueArray, array: queue.getQueue(), head: queue.getHead(), tail: queue.getTail() , modifiedItem: null})
-    setControls({...controls, add: false, delete: false, clear: false})
+
+    setControls({...controls, delete: false});
   }
 
   function clear() {
+    setControls({...controls, clear: true});
     queue.clear();
     setQueueArray({...queueArray, array: queue.getQueue(), head: queue.getHead(), tail: queue.getTail()})
+    setControls({...controls, clear: false});
   }
-  
+
   return (
     <SolutionLayout title="Очередь">
       <form className={styles.controls} onSubmit={onSubmit}>
         <div className={styles.controlsMain}>
           <Input isLimitText={true} value={values.item} name={'item'} maxLength={4} onChange={handleChange}/>
-          <Button type={'submit'} extraClass={styles.smallButton} text="Добавить" disabled={controls.add}/>
-          <Button type={'button'} extraClass={styles.smallButton} text="Удалить" disabled={queueLength === 0 || controls.delete} onClick={dequeue}/>
+          <Button type={'submit'} extraClass={styles.smallButton} text="Добавить" isLoader={controls.add} disabled={!values.item || queueArray.tail === queueSize}/>
+          <Button type={'button'} extraClass={styles.smallButton} text="Удалить" isLoader={controls.delete} disabled={queueLength === 0} onClick={dequeue}/>
         </div>
-        <Button type={'reset'} extraClass={styles.smallButton} text="Очистить" disabled={queueArray.tail  === 0 || controls.clear}  onClick={clear}/>
+        <Button type={'reset'} extraClass={styles.smallButton} text="Очистить" isLoader={controls.clear} disabled={queueArray.tail  === 0}  onClick={clear}/>
       </form>
       <div className={styles.array}>
         {queueArray.array.map((item, index) => 

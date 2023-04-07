@@ -143,6 +143,10 @@ export const ListPage: React.FC = () => {
   };
 
   async function addByIndex(value: number, index: number) {
+    //проверка на валидность индекса
+    if (index > list.length-1 || index < 0) {
+      return;
+    }
     setControls({...controls, all: true})
     setLoader({...loader, addByIndex: true});
     index = Number(index);
@@ -175,6 +179,11 @@ export const ListPage: React.FC = () => {
   }
 
   async function deleteByIndex(index: number) {
+    //проверка на валидность индекса
+    if (index > list.length-1 || index < 0) {
+      return;
+    }
+
     setControls({...controls, all: true})
     setLoader({...loader, deleteByIndex: true});
     index = Number(index)
@@ -209,8 +218,35 @@ export const ListPage: React.FC = () => {
       </div>
       <div className={styles.controls}>
         <Input extraClass={styles.inputWidth} type={'number'} name={'index'} value={values.index} onChange={handleChange}/>
-        <Button extraClass={styles.bigButton} disabled={list.length === 0 || values.index === '' || controls.addByIndex || controls.all} isLoader={loader.addByIndex} onClick={()=>addByIndex(values.value, values.index)} text="Добавить по индексу"/>
-        <Button extraClass={styles.bigButton} disabled={list.length === 0 || controls.deleteByIndex || controls.all} isLoader={loader.deleteByIndex} onClick={()=>deleteByIndex(values.index)} text="Удалить по индексу"/>
+        <Button
+          extraClass={styles.bigButton}
+          disabled={
+            list.length === 0
+            || values.index === ''
+            || values.value === ''
+            || controls.addByIndex
+            || controls.all
+            || values.index > list.length-1
+            || values.index < 0
+          }
+          isLoader={loader.addByIndex}
+          onClick={()=>addByIndex(values.value, values.index)}
+          text="Добавить по индексу"
+        />
+        <Button
+          extraClass={styles.bigButton}
+          disabled={
+            list.length === 0
+            || values.index === ''
+            || controls.deleteByIndex
+            || controls.all
+            || values.index > list.length-1
+            || values.index < 0
+          }
+          isLoader={loader.deleteByIndex}
+          onClick={()=>deleteByIndex(values.index)}
+          text="Удалить по индексу"
+        />
       </div>
       <ul className={styles.array}>
         {list.array.map((item, index) =>

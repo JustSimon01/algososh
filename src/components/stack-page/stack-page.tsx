@@ -33,25 +33,28 @@ export const StackPage: React.FC = () => {
 
   async function onSubmit (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setControls({...controls, add: true});
     stack.push(string);
     setArray([...array, { value: stack.peak()!, state: ElementStates.Changing }]);
     setString('');
-    setControls({...controls, add: true, delete: true, clear: true})
+
     await sleep(SHORT_DELAY_IN_MS);
     setArray([...array, { value: stack.peak()!, state: ElementStates.Default }]);
-    setControls({...controls, add: false, delete: false, clear: false})
+    setControls({...controls, add: false});
   }
 
   async function deleteLast() {
+    setControls({...controls, delete: true});
     array.at(-1)!.state = ElementStates.Changing
     setArray([...array]);
-    setControls({...controls, add: true, delete: true, clear: true})
+
     await sleep(SHORT_DELAY_IN_MS);
     stack.pop();
     array.pop();
     if (array.length > 0) array.at(-1)!.state = ElementStates.Default
     setArray([...array]);
-    setControls({...controls, add: false, delete: false, clear: false})
+    setControls({...controls, delete: false});
   }
 
   const clear = () => {
@@ -64,13 +67,13 @@ export const StackPage: React.FC = () => {
       <form className={styles.controls} onSubmit={onSubmit}>
         <div className={styles.controlsMain}>
           <Input isLimitText={true} value={string} maxLength={4} onChange={onChange}/>
-          <Button type={'submit'} extraClass={styles.smallButton} disabled={!string || controls.add} text="Добавить"/>
-          <Button type={'button'} extraClass={styles.smallButton} disabled={array.length === 0 || controls.delete} onClick={deleteLast} text="Удалить"/>
+          <Button type={'submit'} extraClass={styles.smallButton} isLoader={controls.add} disabled={!string || controls.delete || controls.clear } text="Добавить"/>
+          <Button type={'button'} extraClass={styles.smallButton} isLoader={controls.delete} disabled={array.length === 0 || controls.add || controls.clear } onClick={deleteLast} text="Удалить"/>
         </div>
-        <Button type={'reset'} extraClass={styles.smallButton} disabled={array.length === 0 || controls.clear} onClick={clear} text="Очистить"/>
+        <Button type={'reset'} extraClass={styles.smallButton} isLoader={controls.clear} disabled={array.length === 0 || controls.delete || controls.add} onClick={clear} text="Очистить"/>
       </form>
       <div className={styles.array}>
-        {array.map((item, index)=><Circle letter={item.value} key={index} state={item.state} head={stack.tail === index + 1 ? 'tail' : null} index={index}/>)}
+        {array.map((item, index)=><Circle letter={item.value} key={index} state={item.state} head={stack.tail === index + 1 ? 'top' : null} index={index}/>)}
       </div>
     </SolutionLayout>
   );

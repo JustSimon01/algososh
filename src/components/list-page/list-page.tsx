@@ -56,7 +56,6 @@ export const ListPage: React.FC = () => {
     }
     
     linkedList.prepend(value);
-    linkedList.print();
     list.array[0].head = value;
     setList({...list})
 
@@ -188,7 +187,6 @@ export const ListPage: React.FC = () => {
     setLoader({...loader, deleteByIndex: true});
     index = Number(index)
     linkedList.deleteByIndex(index);
-    linkedList.print();
 
     for (let i =0; i <= index; i++) {
       list.array[i].state = ElementStates.Changing

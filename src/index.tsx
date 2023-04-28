@@ -6,10 +6,11 @@ import "./components/ui/common.css";
 import "./components/ui/box.css";
 import App from "./components/app/app";
 import reportWebVitals from "./reportWebVitals";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -10,7 +10,7 @@
 - Связанный список
 
 ### Посмотреть проект можно по ссылке:
-*  
+*  https://justsimon01.github.io/algososh/
 
 ## Available Scripts
 ### Инструкция по работе

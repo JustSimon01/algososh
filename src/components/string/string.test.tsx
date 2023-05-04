@@ -1,6 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { invertArray } from "./string";
-import { BrowserRouter } from "react-router-dom";
+import { invertArray } from "./utils";
 
 describe("Тесты алгоритма строки", () => {
   test("Разворот строки с чётным количеством символов", async () => {

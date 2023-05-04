@@ -1,4 +1,3 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import { Circle } from "./circle";
 import { ElementStates } from "../../../types/element-states";

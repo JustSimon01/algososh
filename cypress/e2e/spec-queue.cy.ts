@@ -1,7 +1,4 @@
-import { compareStyles, compareValues, compareHeads, compareTails } from "./utils";
-const MODIFYED = "modified";
-const CHANGING = "changing";
-const DEFAULT = "default";
+import { compareStyles, compareValues, compareHeads, compareTails, MODIFYED, CHANGING, DEFAULT } from "./utils";
 
 describe('Тестирование алгоритма: "Очередь"', () => {
   beforeEach(() => {

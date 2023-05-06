@@ -3,12 +3,15 @@
 exports[`Тестирование компонента Circle Отрисовка элемента без буквы 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -19,6 +22,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -26,12 +30,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента в состоянии changing 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   changing"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -42,6 +49,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -49,12 +57,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента в состоянии default 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -65,6 +76,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -72,12 +84,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента в состоянии modified 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   modified"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -88,6 +103,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -95,14 +111,17 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с head 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head string"
+    data-testid="testedCircleHead"
   >
     A
   </div>
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -113,6 +132,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -120,12 +140,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с index 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -138,6 +161,7 @@ exports[`Тестирование компонента Circle Отрисовка
   </p>
   <div
     className="text text_type_input text_color_input mt-4 absolute tail60 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -145,18 +169,23 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с react-элементом в head 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   >
     <div
       className="content "
+      data-testid="testedCircle"
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-testid="testedCircleHead"
       />
       <div
         className="circle   default"
+        data-testid="testedCircleColor"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -167,11 +196,13 @@ exports[`Тестирование компонента Circle Отрисовка
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-testid="testedCircleTail"
       />
     </div>
   </div>
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -182,6 +213,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -189,12 +221,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с react-элементом в tail 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -205,15 +240,19 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   >
     <div
       className="content "
+      data-testid="testedCircle"
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-testid="testedCircleHead"
       />
       <div
         className="circle   default"
+        data-testid="testedCircleColor"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -224,6 +263,7 @@ exports[`Тестирование компонента Circle Отрисовка
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-testid="testedCircleTail"
       />
     </div>
   </div>
@@ -233,12 +273,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с tail 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -249,6 +292,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 string"
+    data-testid="testedCircleTail"
   >
     A
   </div>
@@ -258,12 +302,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с буквами 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle   default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -276,6 +323,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
@@ -283,12 +331,15 @@ exports[`Тестирование компонента Circle Отрисовка
 exports[`Тестирование компонента Circle Отрисовка элемента с пропом 'isSmall ===  true' 1`] = `
 <div
   className="content "
+  data-testid="testedCircle"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="testedCircleHead"
   />
   <div
     className="circle  small default"
+    data-testid="testedCircleColor"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -299,6 +350,7 @@ exports[`Тестирование компонента Circle Отрисовка
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="testedCircleTail"
   />
 </div>
 `;
